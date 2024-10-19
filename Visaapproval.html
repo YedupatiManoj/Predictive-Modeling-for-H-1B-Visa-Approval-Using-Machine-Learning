@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H-1B Visa Approval Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='images/plane.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        form {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>H-1B Visa Predictor</h1>
+    <div class="container">
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="full_time_position">Full Time Position:</label>
+                <select class="form-control" id="full_time_position" name="full_time_position">
+                    <option value="Y">Yes</option>
+                    <option value="N">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="prevailing_wage">Prevailing Wage:</label>
+                <input type="text" class="form-control" id="prevailing_wage" name="prevailing_wage" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="text" class="form-control" id="year" name="year" required>
+            </div>
+            <div class="form-group">
+                <label for="soc_name">SOC Name:</label>
+                <input type="text" class="form-control" id="soc_name" name="soc_name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
